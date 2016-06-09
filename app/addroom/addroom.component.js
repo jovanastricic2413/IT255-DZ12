@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, common_1, http_1, router_1;
-    var SignupComponent;
+    var AddRoomComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -28,54 +28,47 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
                 router_1 = router_1_1;
             }],
         execute: function() {
-            SignupComponent = (function () {
-                function SignupComponent(builder, http, router) {
+            AddRoomComponent = (function () {
+                function AddRoomComponent(builder, http, router) {
                     this.http = http;
                     this.router = router;
                     this.signupForm = builder.group({
-                        email: ["", common_1.Validators.none],
-                        username: ["", common_1.Validators.none],
-                        password: ["", common_1.Validators.none]
+                        newRoomName: ["", common_1.Validators.none],
+                        tv: ["", common_1.Validators.none],
+                        beds: ["", common_1.Validators.none],
+                        kvadratura: ["", common_1.Validators.none]
                     });
-                    if (localStorage.getItem('token') != null) {
-                        this.router.parent.navigate(['./Home']);
-                    }
                 }
-                SignupComponent.prototype.onSignUp = function () {
+                AddRoomComponent.prototype.onAddRoom = function () {
                     var _this = this;
-                    var data = "email=" + this.signupForm.value.email + "&username=" + this.signupForm.value.username + "&password=" + this.signupForm.value.password;
+                    var data = "newRoomName=" + this.signupForm.value.newRoomName + "&tv=" + this.signupForm.value.tv + "&beds=" + this.signupForm.value.beds + "&kvadratura=" + this.signupForm.value.kvadratura;
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-                    this.http.post('http://localhost/php/signup.php', data, { headers: headers })
+                    this.http.post('http://localhost/php/addroom.php', data, { headers: headers })
                         .map(function (res) { return res; })
                         .subscribe(function (data) { return _this.postResponse = data; }, function (err) { return alert(JSON.stringify(err)); }, function () {
                         if (_this.postResponse._body.indexOf("error") === -1) {
-                            var obj = JSON.parse(_this.postResponse._body);
-                            localStorage.setItem('token', obj.token);
+                            alert("Uspesno dodavanje sobe");
                             _this.router.parent.navigate(['./Home']);
                         }
                         else {
-                            var obj = JSON.parse(_this.postResponse._body);
-                            document.getElementsByClassName("alert")[0].style.display = "block";
-                            document.getElementsByClassName("alert")[0].innerHTML = obj.error.split("\\r\\n").join("<br/>").split("\"").join("");
+                            alert("Neuspesno dodavanje sobe");
                         }
                     });
                 };
-                SignupComponent = __decorate([
+                AddRoomComponent = __decorate([
                     core_1.Component({
-                        selector: 'Signup',
-                        templateUrl: 'app/signup/signup.html',
-                        styleUrls: ['css/style.css'],
-                        directives: [common_1.FORM_DIRECTIVES],
-                        viewBindings: [common_1.FORM_BINDINGS]
+                        selector: 'AddRoom',
+                        templateUrl: 'app/addroom/addroom.html',
+                        styleUrls: ['css/style.css']
                     }), 
                     __metadata('design:paramtypes', [(typeof (_a = typeof common_1.FormBuilder !== 'undefined' && common_1.FormBuilder) === 'function' && _a) || Object, (typeof (_b = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _b) || Object, (typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object])
-                ], SignupComponent);
-                return SignupComponent;
+                ], AddRoomComponent);
+                return AddRoomComponent;
                 var _a, _b, _c;
             }());
-            exports_1("SignupComponent", SignupComponent);
+            exports_1("AddRoomComponent", AddRoomComponent);
         }
     }
 });
-//# sourceMappingURL=signup.component.js.map
+//# sourceMappingURL=addroom.component.js.map
