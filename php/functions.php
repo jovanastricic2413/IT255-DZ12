@@ -25,5 +25,17 @@ $rarray['rooms'] = $rooms;
 return json_encode($rarray);
 } 
 
+function addRoom($newRoomName, $tv, $beds, $kvadratura){
+	global $conn;
+	$rarray = array();
+	$stmt = $conn->prepare("INSERT INTO rooms (roomname, tv, beds, kvadratura) VALUES (?, ?, ?, ?)");
+	$stmt->bind_param("ssss", $newRoomName, $tv, $beds, $kvadratura);
+	if($stmt->execute()){
+		$rarray['sucess'] = "ok";
+	}else{
+		$rarray['error'] = "Database connection error";
+	}
+	return json_encode($rarray);
+}
 
 ?>

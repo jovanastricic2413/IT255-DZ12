@@ -1,0 +1,14 @@
+<div id="addroom" class="active">
+				<form role="form" class="addroom-form" [ngFormModel]="registerForm">
+					<input type="text" class="input" ngControl='newRoomName' required autocomplete="off" placeholder="Name of room*"/>
+					<input type="text" class="input" ngControl='beds' required autocomplete="off" placeholder="Number of beds*"/>
+						<p>TV:</p>
+						<select class="form-control" ng-selected="Yes" ngControl='tv'>
+							<option value="1" >Yes</option>
+							<option value="0" >No</option>
+						</select>
+					<input type="text" class="input" ngControl='kvadratura' required autocomplete="off" placeholder="Kvadratura*"/>
+					<button (click)="onAddRoom()" class="button button-block">Submit</button>
+					<!-- button type="submit" name="submit" class="btn" -->
+				</form>
+			</div><!--.login-tab-content-->

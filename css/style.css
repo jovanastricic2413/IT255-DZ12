@@ -9,7 +9,7 @@
   }
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;}
 
 a {
   color: #666;
@@ -55,7 +55,7 @@ input {
   .form-wrap form .input {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    color: inherit;
+    color: black;
     font-family: inherit;
     padding: .8em 0 10px .8em;
     border: 1px solid #CFCFCF;
@@ -113,6 +113,9 @@ input {
       -o-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg); }
+	    .form-wrap .form-control {
+			margin-bottom:10px;
+		}
   .form-wrap .help-text {
     margin-top: .6em; }
     .form-wrap .help-text p {
