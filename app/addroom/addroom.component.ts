@@ -10,14 +10,22 @@ import {Router, ROUTER_PROVIDERS} from 'angular2/router'
  styleUrls: ['css/style.css']
 })
 export class AddRoomComponent {
+<<<<<<< HEAD
  signupForm: ControlGroup;
+=======
+ registerForm: ControlGroup;
+>>>>>>> 7a70f28431ca3535d6a9150c6595038a3061bc89
   http: Http;
   router: Router;
   postResponse: String;
   constructor(builder: FormBuilder, http: Http,  router: Router) {
 	this.http = http;
 	this.router = router;
+<<<<<<< HEAD
     this.signupForm = builder.group({
+=======
+    this.registerForm = builder.group({
+>>>>>>> 7a70f28431ca3535d6a9150c6595038a3061bc89
      newRoomName: ["", Validators.none],
      tv: ["", Validators.none],
      beds: ["", Validators.none],
@@ -27,7 +35,11 @@ export class AddRoomComponent {
 
 
  onAddRoom(): void {
+<<<<<<< HEAD
 	var data = "newRoomName="+this.signupForm.value.newRoomName+"&tv="+this.signupForm.value.tv+"&beds="+this.signupForm.value.beds+"&kvadratura="+this.signupForm.value.kvadratura;
+=======
+	var data = "newRoomName="+this.registerForm.value.newRoomName+"&tv="+this.registerForm.value.tv+"&beds="+this.registerForm.value.beds+"&kvadratura="+this.registerForm.value.kvadratura;
+>>>>>>> 7a70f28431ca3535d6a9150c6595038a3061bc89
 	var headers = new Headers();
 	headers.append('Content-Type', 'application/x-www-form-urlencoded');
 	this.http.post('http://localhost/php/addroom.php',data, {headers:headers})

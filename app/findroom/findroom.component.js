@@ -51,10 +51,9 @@ System.register(['angular2/core', 'angular2/http', 'app/pipe/search', 'app/pipe/
                         templateUrl: 'app/findroom/findroom.html',
                         pipes: [search_1.SearchPipe, searchKV_1.SearchPipeKV]
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _a) || Object, (typeof (_b = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _b) || Object])
+                    __metadata('design:paramtypes', [http_1.Http, router_1.Router])
                 ], FindRoomComponent);
                 return FindRoomComponent;
-                var _a, _b;
             }());
             exports_1("FindRoomComponent", FindRoomComponent);
         }

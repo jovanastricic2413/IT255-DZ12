@@ -32,7 +32,11 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
                 function AddRoomComponent(builder, http, router) {
                     this.http = http;
                     this.router = router;
+<<<<<<< HEAD
                     this.signupForm = builder.group({
+=======
+                    this.registerForm = builder.group({
+>>>>>>> 7a70f28431ca3535d6a9150c6595038a3061bc89
                         newRoomName: ["", common_1.Validators.none],
                         tv: ["", common_1.Validators.none],
                         beds: ["", common_1.Validators.none],
@@ -41,7 +45,11 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
                 }
                 AddRoomComponent.prototype.onAddRoom = function () {
                     var _this = this;
+<<<<<<< HEAD
                     var data = "newRoomName=" + this.signupForm.value.newRoomName + "&tv=" + this.signupForm.value.tv + "&beds=" + this.signupForm.value.beds + "&kvadratura=" + this.signupForm.value.kvadratura;
+=======
+                    var data = "newRoomName=" + this.registerForm.value.newRoomName + "&tv=" + this.registerForm.value.tv + "&beds=" + this.registerForm.value.beds + "&kvadratura=" + this.registerForm.value.kvadratura;
+>>>>>>> 7a70f28431ca3535d6a9150c6595038a3061bc89
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/x-www-form-urlencoded');
                     this.http.post('http://localhost/php/addroom.php', data, { headers: headers })
@@ -62,10 +70,16 @@ System.register(['angular2/core', 'angular2/common', 'angular2/http', 'rxjs/Rx',
                         templateUrl: 'app/addroom/addroom.html',
                         styleUrls: ['css/style.css']
                     }), 
+<<<<<<< HEAD
                     __metadata('design:paramtypes', [(typeof (_a = typeof common_1.FormBuilder !== 'undefined' && common_1.FormBuilder) === 'function' && _a) || Object, (typeof (_b = typeof http_1.Http !== 'undefined' && http_1.Http) === 'function' && _b) || Object, (typeof (_c = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _c) || Object])
                 ], AddRoomComponent);
                 return AddRoomComponent;
                 var _a, _b, _c;
+=======
+                    __metadata('design:paramtypes', [common_1.FormBuilder, http_1.Http, router_1.Router])
+                ], AddRoomComponent);
+                return AddRoomComponent;
+>>>>>>> 7a70f28431ca3535d6a9150c6595038a3061bc89
             }());
             exports_1("AddRoomComponent", AddRoomComponent);
         }
