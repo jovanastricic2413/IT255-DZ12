@@ -72,10 +72,9 @@ System.register(['angular2/core', 'angular2/router', 'app/login/login.component'
                         { path: '/AddRoom', name: 'AddRoom', component: addroom_component_1.AddRoomComponent },
                         { path: '/Home', name: 'Home', component: home_component_1.HomeComponent, useAsDefault: true },
                     ]), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof router_1.Router !== 'undefined' && router_1.Router) === 'function' && _a) || Object])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], AppComponent);
                 return AppComponent;
-                var _a;
             }());
             exports_1("AppComponent", AppComponent);
         }

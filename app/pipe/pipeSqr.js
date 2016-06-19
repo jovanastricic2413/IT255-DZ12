@@ -11,17 +11,17 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var SearchPipeKV;
+    var PipeSqr;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            SearchPipeKV = (function () {
-                function SearchPipeKV() {
+            PipeSqr = (function () {
+                function PipeSqr() {
                 }
-                SearchPipeKV.prototype.transform = function (value, _a) {
+                PipeSqr.prototype.transform = function (value, _a) {
                     var queryString = _a[0];
                     if (value == null) {
                         return null;
@@ -29,16 +29,16 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     console.log('transform');
                     return value.filter(function (item) { return item.kvadratura.toLowerCase().indexOf(queryString.toLowerCase()) !== -1; });
                 };
-                SearchPipeKV = __decorate([
+                PipeSqr = __decorate([
                     core_1.Pipe({
-                        name: 'SearchPipeKV'
+                        name: 'PipeSqr'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], SearchPipeKV);
-                return SearchPipeKV;
+                ], PipeSqr);
+                return PipeSqr;
             }());
-            exports_1("SearchPipeKV", SearchPipeKV);
+            exports_1("PipeSqr", PipeSqr);
         }
     }
 });
-//# sourceMappingURL=searchKV.js.map
+//# sourceMappingURL=pipeSqr.js.map

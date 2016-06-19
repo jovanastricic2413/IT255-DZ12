@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'app/pipe/search', 'app/pipe/searchKV', 'rxjs/Rx', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'app/pipe/pipeName', 'app/pipe/pipeSqr', 'rxjs/Rx', 'angular2/router', 'angular2/common'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'app/pipe/search', 'app/pipe/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, search_1, searchKV_1, router_1;
+    var core_1, http_1, pipeName_1, pipeSqr_1, router_1, common_1;
     var FindRoomComponent;
     return {
         setters:[
@@ -20,38 +20,50 @@ System.register(['angular2/core', 'angular2/http', 'app/pipe/search', 'app/pipe/
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (search_1_1) {
-                search_1 = search_1_1;
+            function (pipeName_1_1) {
+                pipeName_1 = pipeName_1_1;
             },
-            function (searchKV_1_1) {
-                searchKV_1 = searchKV_1_1;
+            function (pipeSqr_1_1) {
+                pipeSqr_1 = pipeSqr_1_1;
             },
             function (_1) {},
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
             FindRoomComponent = (function () {
-                function FindRoomComponent(http, router) {
+                function FindRoomComponent(http, router, builder) {
                     var _this = this;
                     this.beds = "";
                     this.kvadratura = "";
+                    this.postResponse = "";
                     this.http = http;
                     this.router = router;
                     var headers = new http_1.Headers();
                     http.get('http://localhost/php/getrooms.php', { headers: headers })
-                        .map(function (res) { return res.json(); })
+                        .map(function (res) { return res.json(); }).share()
                         .subscribe(function (rooms) {
                         _this.rooms = rooms.rooms;
+                        setInterval(function () {
+                            $('#example').dataTable({
+                                paging: false,
+                                searching: false
+                            });
+                        }, 200);
                     });
                 }
                 FindRoomComponent = __decorate([
                     core_1.Component({
                         selector: 'FindRoom',
                         templateUrl: 'app/findroom/findroom.html',
-                        pipes: [search_1.SearchPipe, searchKV_1.SearchPipeKV]
+                        directives: [common_1.FORM_DIRECTIVES],
+                        viewBindings: [common_1.FORM_BINDINGS],
+                        pipes: [pipeName_1.PipeName, pipeSqr_1.PipeSqr]
                     }), 
-                    __metadata('design:paramtypes', [http_1.Http, router_1.Router])
+                    __metadata('design:paramtypes', [http_1.Http, router_1.Router, common_1.FormBuilder])
                 ], FindRoomComponent);
                 return FindRoomComponent;
             }());

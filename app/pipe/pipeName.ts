@@ -1,8 +1,8 @@
 import {Pipe} from 'angular2/core';
 @Pipe({
-    name: 'SearchPipe'
+    name: 'PipeName'
 })
-export class SearchPipe {
+export class PipeName {
 
     transform (value, [queryString]) {
         if (value==null) {

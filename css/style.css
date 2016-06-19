@@ -127,3 +127,20 @@ input {
 .col-lg-12{
 	color: white;
 }
+th{
+	color:black;
+}
+th.sorting{
+	color:white;
+}
+th.sorting_desc{
+	color:white;
+}
+th.sorting_asc{
+	color:white;
+}
+.dataTables_info #example_info{
+	color:white;
+}
+
+
